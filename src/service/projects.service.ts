@@ -25,7 +25,6 @@ export class ProjectsService {
     size: number;
   }): Promise<Paginated<Projects>> => {
     const { page, size } = props;
-    console.log("🚀 ~ ProjectsService ~ paginate= ~ props:", props);
     const pageSize = size ?? 5;
     const skip = ((page ?? 1) - 1) * pageSize;
     console.log("skip", skip);
