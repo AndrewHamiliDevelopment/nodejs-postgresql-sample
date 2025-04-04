@@ -9,12 +9,12 @@ import { each, has } from "lodash";
 import { UserAuthDto } from "./dto/user-auth.dto";
 import * as jwt from "jsonwebtoken";
 
-const secretKey = "";
+const secretKey = process.env.SECRET;
 
 export class UserService {
   private readonly repository: Repository<User>;
   constructor(private readonly appDataSource: DataSource) {
-    this.repository = appDataSource.manager.getRepository(User);
+    this.repository = this.appDataSource.manager.getRepository(User);
   }
   list = async () => {
     return await this.repository.find();
