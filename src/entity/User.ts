@@ -9,7 +9,7 @@ export enum Role {
 @Entity()
 export class User extends BaseEntity{
 
-    @Column()
+    @Column({unique: true})
     username: string
 
     @Column()
