@@ -11,10 +11,10 @@ export class UserRouter {
     getRouter(): Router {
         const router = Router();
         const userService = new UserService(this.dataSource);
-        
         const userController = new UserController(userService);
         router.get('', verifyToken, userController.list);
         router.post('/register', userController.register);
+        router.post('/auth', userController.auth);
         return router;
     }
 }

@@ -33,7 +33,7 @@ export class UserService {
       limit: take,
     };
   };
-  create = async (res: Response, dto: UserAddDto) => {
+  create = async (dto: UserAddDto) => {
     const errorsArray: any[] = [];
     try {
       const payload = new UserAddDto();
