@@ -15,7 +15,7 @@ import { has } from 'lodash';
 
 
 
-const secretKey = '';
+const secretKey = process.env.SECRET;
 
 export const verifyToken = (req: Request, res: Response,  next: NextFunction): void => {
     const token = req.header('Authorization');
