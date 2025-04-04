@@ -16,6 +16,8 @@ DATABASE_USER=nodeserver
 DATABASE_PASS=toor
 DATABASE_NAME=node_server
 DATABASE_LOGGING=true
+
+SECRET=123
 ```
 3. Install dependencies
 ```bash

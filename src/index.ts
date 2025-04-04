@@ -8,11 +8,20 @@ import bodyParser = require("body-parser");
 
 dotenv.config()
 
-const configs = ['SERVER_PORT'];
+const configs = [
+  'SERVER_PORT',
+  'DATABASE_HOST',
+  'DATABASE_POST',
+  'DATABASE_USER',
+  'DATABASE_PASS',
+  'DATABASE_NAME',
+  'DATABASE_LOGGING',
+  'SECRET',
+];
 
 configs.forEach((c) => {
     if (isEmpty(process.env[c])) {
-      throw new Error(`Configuration ${c} is not set`);
+      throw new Error(`ENV Variable "${c}" not set`);
     }
   });
   
