@@ -24,8 +24,8 @@ export class UserService {
     limit?: number;
   }): Promise<Paginated<User>> => {
     const { page, limit } = props;
-    const take = limit ?? 5;
-    const skip = ((page ?? 1) - 1) * take;
+    const take = limit || 5;
+    const skip = ((page || 1) - 1) * take;
     const paginatedUsers = await this.repository.findAndCount({ take, skip });
     return {
       data: paginatedUsers[0],

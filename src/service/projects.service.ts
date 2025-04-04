@@ -25,8 +25,8 @@ export class ProjectsService {
     size: number;
   }): Promise<Paginated<Projects>> => {
     const { page, size } = props;
-    const pageSize = size ?? 5;
-    const skip = ((page ?? 1) - 1) * pageSize;
+    const pageSize = size || 5;
+    const skip = ((page || 1) - 1) * pageSize;
     console.log("skip", skip);
     const paginatedProjects = await this.repository.findAndCount({
       take: pageSize,
