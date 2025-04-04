@@ -14,8 +14,12 @@ export class UserController {
   }
   register = async (req: Request, res: Response) => {
     const payload = req.body;
-    const user = await this.service.create(res, payload);
+    try{
+      const user = await this.service.create(res, payload);
     res.status(201).json(user);
+    } catch (e) {
+      res.status(400).json(e);
+    }
   }
   auth = async (req: Request, res: Response) => {
     const payload = req.body;
@@ -23,7 +27,7 @@ export class UserController {
       const token = await this.service.auth(payload);
       res.status(200).json(token);
     } catch (e) {
-      res.status(401).send(e);
+      res.status(401).json(e);
     }
   }
 }
