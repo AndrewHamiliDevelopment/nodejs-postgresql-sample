@@ -23,7 +23,8 @@ export const verifyToken = (req: Request, res: Response,  next: NextFunction): v
         res.status(401).json({error: 'Unauthorized'})
     }
     try {
-        const decoded = jwt.verify(token, secretKey);
+        const decoded = jwt.verify(token.replace('Bearer ', ''), secretKey);
+        console.log("🚀 ~ verifyToken ~ decoded:", decoded)
         if(has(decoded, 'userId')) {
             next();
         }
